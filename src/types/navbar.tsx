@@ -1,27 +1,7 @@
-// Allowed labels (prevents duplicates / typos)
-export type NavLabels =
-  | "HOME"
-  | "SERVICES"
-  | "ABOUT ME"
-  | "PLATFORMS"
-  | "EVENTS"
-  | "CASE STUDIES"
-  | "MEDIA & PRESS"
-  | "CONTACT";
+export type NavLabels = string;
+export type NavHref = string;
 
-// Allowed href patterns
-export type NavHref =
-  | "/"
-  | "/#services"
-  | "/#about-me"
-  | "/#platforms"
-  | "/#events"
-  | "/#case-studies"
-  | "/#media-and-press"
-  | "/#contact";
-
-// Final type
 export type navlinks = {
-  label: NavLabels;
-  href: NavHref;
+  label: string;
+  href: string;
 };

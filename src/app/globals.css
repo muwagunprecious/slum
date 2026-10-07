@@ -1,112 +1,90 @@
-@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #211812;
 
-  /* custom colors */
-  --primaryGold: #cc9933;
-  --primaryBlack: #000000;
+  /* World Connect Design System Tokens */
+  --color-primary: #e86e4c;
+  --color-secondary: #211812;
+  --color-tertiary: #fff9f7;
+  --color-surface: #ffffff;
+  --color-on-surface: #211812;
+  --color-neutral-border: #e5e7eb;
 
-  --font-jost: "Jost", sans-serif;
-  --font-poppins: "Poppins", sans-serif;
+  --font-dm-sans: "DM Sans", sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-tertiary: var(--color-tertiary);
+  --color-surface: var(--color-surface);
+  --color-neutral-border: var(--color-neutral-border);
 
-  --color-primaryGold: var(--primaryGold);
-  --color-primaryBlack: var(--primaryBlack);
-
-  --font-jost: var(--font-jost);
-  --font-poppins: var(--font-poppins);
+  --font-dm: var(--font-dm-sans);
 }
-
-/* ==============================
-   Global HTML Styles
-   ============================== */
 
 html {
   scroll-behavior: smooth;
-
-  /* ==============================
-   Custom Scrollbar Styling
-   ============================== */
-  ::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #000000; /* Track color */
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--primaryGold); /* Thumb color */
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: #ffffff;
+  color: #211812;
+  font-family: var(--font-dm-sans), "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
-  font-family:
-    "Jost",
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    "Helvetica Neue",
-    Arial,
-    "Noto Sans",
-    sans-serif,
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    "Segoe UI Symbol",
-    "Noto Color Emoji";
+  margin: 0;
+  padding: 0;
 }
 
-@keyframes logo-slide {
+/* Base Editorial Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-dm-sans), "DM Sans", sans-serif;
+  color: inherit;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+
+p {
+  color: #211812;
+  line-height: 1.7;
+}
+
+/* Subtle transitions without bounce/neon */
+button, a {
+  transition: all 0.15s ease-in-out;
+}
+
+/* Gliding Banner Animation */
+@keyframes glideTrack {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
-.animate-logo-slide {
-  animation: logo-slide 120s linear infinite;
+.glide-track-animated {
+  display: flex !important;
+  width: max-content !important;
+  animation: glideTrack 35s linear infinite !important;
+  will-change: transform;
 }
 
-.animate-logo-slide:hover {
+.glide-track-animated:hover {
   animation-play-state: paused;
 }
 
-@keyframes vertical-slide {
+@keyframes glideContinuous {
   0% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateY(-50%);
+    transform: translate3d(-33.333%, 0, 0);
   }
-}
-
-.animate-vertical-slide {
-  animation: vertical-slide 120s linear infinite;
-}
-
-.animate-vertical-slide:hover {
-  animation-play-state: paused;
 }

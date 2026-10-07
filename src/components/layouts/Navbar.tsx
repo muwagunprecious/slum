@@ -1,193 +1,133 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { NavLinks } from "@/constants/navbar";
-// import { usePathname } from "next/navigation";
+import { useState } from "react";
 import Link from "next/link";
-import Button from "../ui/Button";
-import { CircleArrowOutUpRight, CircleX, Menu, X } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
-  // const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
-  useEffect(() => {
-    const controlNavbar = (): void => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY && currentScrollY > 200) {
-        setIsScrolled(false);
-        setIsMobileMenuOpen(false);
-      } else if (currentScrollY < lastScrollY || currentScrollY <= 10) {
-        setIsScrolled(true);
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", controlNavbar, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", controlNavbar);
-    };
-  }, [lastScrollY]);
-
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
     }
-
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isMobileMenuOpen]);
-
-  const toggleMobileMenu = (): void => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  // Function to handle "Get in Touch" button click and scroll to the "Contact" section
-  const handleLinkClick = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
+    setIsMobileMenuOpen(false);
   };
 
   return (
-    <div>
-      <div
-        className={`fixed left-0 w-full z-50 transition-all bg-black duration-300 ease-in-out ${
-          isScrolled ?
-            "translate-y-0 opacity-100"
-          : "-translate-y-full opacity-0 pointer-events-none"
-        }`}
-      >
-        {/* Desktop & Tablet Navbar */}
-        <nav className="bg-primaryBlack font-primaryFont hidden justify-between items-center px-4 py-6 sm:px-6 lg:px-6 w-full lg:flex">
-          {/* Brand logo */}
-          <Link
-            href="/"
-            className="font-black tracking-tighter text-base flex items-center justify-center gap-2"
-          >
-            <span>Adetunwase Adenle</span>
-          </Link>
-
-          {/* Desktop navlinks */}
-          <div className="flex justify-between items-center gap-10">
-            {NavLinks.map(link => {
-              return (
-                <Link
-                  href={link.href}
-                  key={link.label}
-                  className="mx-2 font-normal text-white/60 hover:text-primaryGold py-3 text-xs relative transition-all duration-300 ease-out group"
-                >
-                  <span>{link.label}</span>
-
-                  {/* Animated underline */}
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-0 bg-primaryGold group-hover:w-full transition-all duration-300 ease-out" />
-                </Link>
-              );
-            })}
+    <header className="fixed top-0 left-0 w-full z-50 bg-[#211812] text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-[72px] flex items-center justify-between">
+        {/* Logo - left aligned */}
+        <Link href="/" className="flex items-center gap-3">
+          <div className="relative h-9 w-40 sm:w-44">
+            <Image
+              src="/slumart/slumart_logo_revamp.png"
+              alt="Slum Art Foundation"
+              fill
+              className="object-contain filter brightness-0 invert"
+              priority
+            />
           </div>
+        </Link>
 
-          {/* Desktop button */}
-          <Button
-            title="get in touch"
-            primaryText="GET IN TOUCH"
-            hoverText="GET IN TOUCH"
-            icon={CircleArrowOutUpRight}
-            iconPosition="left"
-            onClick={handleLinkClick}
-            className="gap-2"
-            aria-label="Get in touch button"
-          />
-        </nav>
-
-        {/* Mobile Navbar */}
-        <nav className="bg-primaryBlack w-full px-4 py-6 flex justify-between items-center md:hidden">
-          {/* Mobile Brand logo */}
-          <Link
-            href="/"
-            className="font-black tracking-tighter text-base flex items-center justify-center gap-2"
-            onClick={handleLinkClick}
-          >
-            <span className="text-white">Adetunwase Adenle</span>
-          </Link>
-
-          {/* Mobile menu button */}
+        {/* Desktop Navigation - right aligned */}
+        <nav className="hidden md:flex items-center gap-8">
           <button
-            onClick={toggleMobileMenu}
-            className="p-2 cursor-pointer rounded-lg text-primaryGold hover:bg-primaryGold/10 transition-colors duration-200"
-            aria-label="Toggle mobile menu"
-            title="open menu"
-            aria-expanded={isMobileMenuOpen}
+            onClick={() => scrollToSection("approach")}
+            className="text-[14px] text-white/90 hover:text-white font-normal transition-colors cursor-pointer"
           >
-            {isMobileMenuOpen ?
-              <CircleX className="w-8 h-8" />
-            : <Menu className="w-6 h-6" />}
+            WHO WE ARE
+          </button>
+          <button
+            onClick={() => scrollToSection("pet-bottle-schools")}
+            className="text-[14px] text-white/90 hover:text-white font-normal transition-colors cursor-pointer"
+          >
+            OUR WORK
+          </button>
+          <button
+            onClick={() => scrollToSection("cnn-portraits")}
+            className="text-[14px] text-white/90 hover:text-white font-normal transition-colors cursor-pointer"
+          >
+            CNN PORTRAITS
+          </button>
+          <button
+            onClick={() => scrollToSection("artwork-acquisition")}
+            className="text-[14px] text-white/90 hover:text-white font-normal transition-colors cursor-pointer"
+          >
+            ACQUIRE ARTWORK
+          </button>
+          <button
+            onClick={() => scrollToSection("contact")}
+            className="text-[14px] text-white/90 hover:text-white font-normal transition-colors cursor-pointer"
+          >
+            CONTACT
+          </button>
+
+          {/* Primary Donate Button - 6px rounded, #e86e4c, 114px min width, 44px min height */}
+          <button
+            onClick={() => scrollToSection("artwork-acquisition")}
+            className="bg-[#e86e4c] hover:bg-[#d85d3b] text-[#fff9f7] text-[14px] font-medium px-5 py-2.5 rounded-[6px] min-w-[114px] min-h-[44px] flex items-center justify-center transition-colors cursor-pointer border border-transparent"
+          >
+            Donate
           </button>
         </nav>
-      </div>
 
-      {/* Mobile Menu Overlay */}
-      <div
-        className={`
-          fixed inset-0 z-40 bg-black backdrop-blur-sm
-          transition-opacity duration-300 ease-in-out
-          md:hidden
-          ${
-            isMobileMenuOpen ?
-              "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-          }
-        `}
-        onClick={toggleMobileMenu}
-      />
-
-      {/* Mobile Menu Panel */}
-      <main
-        className={`
-          fixed top-0 h-screen w-full z-50
-          bg-primaryGold transform transition-transform duration-300 ease-in-out
-          md:hidden ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}
-        `}
-      >
-        {/* Mobile menu header */}
-        <div className="flex items-center justify-between p-8 border-b border-white/20">
+        {/* Mobile menu trigger */}
+        <div className="flex items-center gap-3 md:hidden">
           <button
-            onClick={toggleMobileMenu}
-            className="p-2 cursor-pointer rounded-lg text-primaryWhite hover:bg-white/10 transition-colors duration-200"
-            title="close menu"
-            aria-label="Close mobile menu"
+            onClick={() => scrollToSection("artwork-acquisition")}
+            className="bg-[#e86e4c] text-[#fff9f7] text-[13px] font-medium px-4 py-2 rounded-[6px] transition-colors"
           >
-            <X className="w-8 h-8" />
+            Donate
+          </button>
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-2 text-white/90 hover:text-white"
+            aria-label="Toggle Menu"
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
+      </div>
 
-        {/* Mobile navigation links */}
-        <nav className="flex flex-col space-y-3">
-          {NavLinks.map(link => {
-            return (
-              <Link
-                href={link.href}
-                key={link.label}
-                onClick={handleLinkClick}
-                className={`
-                  py-5 px-8 text-base text-white/70 transition-all duration-200 ease-out border-b border-b-white/20
-                `}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
-      </main>
-    </div>
+      {/* Mobile Menu Panel */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-[#211812] border-t border-white/10 px-6 py-6 flex flex-col gap-4">
+          <button
+            onClick={() => scrollToSection("approach")}
+            className="text-left text-[15px] text-white/90 py-2 border-b border-white/5"
+          >
+            WHO WE ARE
+          </button>
+          <button
+            onClick={() => scrollToSection("pet-bottle-schools")}
+            className="text-left text-[15px] text-white/90 py-2 border-b border-white/5"
+          >
+            OUR WORK
+          </button>
+          <button
+            onClick={() => scrollToSection("cnn-portraits")}
+            className="text-left text-[15px] text-white/90 py-2 border-b border-white/5"
+          >
+            CNN PORTRAITS
+          </button>
+          <button
+            onClick={() => scrollToSection("artwork-acquisition")}
+            className="text-left text-[15px] text-white/90 py-2 border-b border-white/5"
+          >
+            ACQUIRE ARTWORK ($1,200)
+          </button>
+          <button
+            onClick={() => scrollToSection("contact")}
+            className="text-left text-[15px] text-white/90 py-2"
+          >
+            CONTACT
+          </button>
+        </div>
+      )}
+    </header>
   );
 };
 

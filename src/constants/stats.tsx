@@ -1,29 +1,29 @@
-import { Trophy, Lightbulb, Users, Palette } from "lucide-react";
+import { Trophy, HeartHandshake, School, Palette } from "lucide-react";
 import { StatItem } from "@/types/stats";
 
 export const stats: StatItem[] = [
   {
     id: 1,
-    icon: Trophy,
-    number: "4",
-    label: "Guinness World Records",
+    icon: Palette,
+    number: "147",
+    label: "CNN Reporter Portrait Collages",
   },
   {
     id: 2,
-    number: "2017",
-    label: "Slum Art Foundation Founded",
-    icon: Lightbulb,
+    number: "4",
+    label: "Guinness World Records",
+    icon: Trophy,
   },
   {
     id: 3,
-    number: "Lagos",
-    label: "Community Roots",
-    icon: Users,
+    number: "1st",
+    label: "PET Bottle School Built in Ijora Badia",
+    icon: School,
   },
   {
     id: 4,
-    number: "Art",
-    label: "Education and Innovation",
-    icon: Palette,
+    number: "1,000+",
+    label: "Slum Children Reached with Art & Relief",
+    icon: HeartHandshake,
   },
 ];

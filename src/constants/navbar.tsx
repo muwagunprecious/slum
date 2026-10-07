@@ -1,12 +1,12 @@
 import { navlinks } from "@/types/navbar";
 
 export const NavLinks: navlinks[] = [
-  { label: "HOME", href: "/" },
-  { label: "ABOUT ME", href: "/#about-me" },
-  { label: "PLATFORMS", href: "/#platforms" },
-  { label: "SERVICES", href: "/#services" },
-  { label: "EVENTS", href: "/#events" },
-  { label: "CASE STUDIES", href: "/#case-studies" },
-  { label: "MEDIA & PRESS", href: "/#media-and-press" },
+  { label: "WHO WE ARE", href: "/#who-we-are" },
+  { label: "PET BOTTLE SCHOOLS", href: "/#pet-bottle-schools" },
+  { label: "CNN PORTRAITS", href: "/#cnn-portraits" },
+  { label: "ACQUIRE ARTWORK ($1,200)", href: "/#artwork-acquisition" },
+  { label: "GUINNESS RECORDS", href: "/#guinness-records" },
+  { label: "TRACK RECORDS", href: "/#track-records" },
+  { label: "COMMUNITY RELIEF", href: "/#community-impact" },
   { label: "CONTACT", href: "/#contact" },
 ];

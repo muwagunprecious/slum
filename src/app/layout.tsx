@@ -1,18 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Jost } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import { headers } from "next/headers";
 import ClientComponent from "@/components/layouts/ClientComponents";
 import BackToTop from "@/components/ui/BackToTopButton";
 
-const jost = Jost({
-  variable: "--font-jost",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
 });
 
 // Viewport & Theme Color
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#211812",
   width: "device-width",
   initialScale: 1,
 };
@@ -22,26 +22,26 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.adetunwase.com"),
 
   title: {
-    default: "Adetunwase Adenle — Artist | Educator | Social Entrepreneur",
-    template: "%s | Adetunwase Adenle",
+    default: "Slum Art Foundation — Building PET Bottle Schools Across Africa Through Art",
+    template: "%s | Slum Art Foundation",
   },
   description:
-    "Adetunwase Adenle is a Nigerian art educator, visual artist, and social entrepreneur using creativity, education, and innovation to support underserved communities.",
+    "Slum Art Foundation empowers children in African slums through creative art education and builds sustainable PET bottle schools across Africa. Support our My Freedom Day 147 CNN Reporter collection.",
   keywords: [
-    "Adetunwase Adenle",
-    "art educator",
-    "visual artist",
-    "social entrepreneur",
     "Slum Art Foundation",
-    "community art education",
-    "Nigeria",
+    "Slum Art",
+    "PET Bottle Schools Africa",
+    "CNN My Freedom Day",
+    "147 CNN Reporter Portraits",
+    "Adetunwase Adenle",
+    "art donations Africa",
     "Guinness World Records",
-    "circular economy",
-    "GoCycle",
+    "Ijora Badia Lagos",
+    "circular economy architecture",
   ],
-  authors: [{ name: "Adetunwase Adenle", url: "https://www.adetunwase.com" }],
-  creator: "Adetunwase Adenle",
-  publisher: "Adetunwase Adenle",
+  authors: [{ name: "Slum Art Foundation", url: "https://slumart.org" }],
+  creator: "Slum Art Foundation",
+  publisher: "Slum Art Foundation",
 
   alternates: {
     canonical: "/",
@@ -51,11 +51,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.adetunwase.com",
-    siteName: "Adetunwase Adenle",
-    title: "Adetunwase Adenle — Artist | Educator | Social Entrepreneur",
+    url: "https://slumart.org",
+    siteName: "Slum Art Foundation",
+    title: "Slum Art Foundation — Building PET Bottle Schools Across Africa",
     description:
-      "Artist, educator, and social entrepreneur using creativity and learning to support underserved communities.",
+      "Transforming plastic waste into sustainable PET bottle schools and empowering slum children across Africa through art.",
     images: [
       {
         url: "/og-image.jpg", // 1200x630px image in /public
@@ -135,7 +135,7 @@ export default async function RootLayout({
   }
 
   return (
-    <html lang="en" className={`${jost.variable} antialiased`}>
+    <html lang="en" className={`${dmSans.variable} antialiased`}>
       <head>
         {/* JSON-LD Structured Data */}
         <script

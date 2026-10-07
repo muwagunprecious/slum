@@ -1,84 +1,55 @@
 "use client";
 
 import React from "react";
-import Heading from "@/components/ui/Heading";
-import Button from "@/components/ui/Button";
-import { UserStar } from "lucide-react";
-import Paragraph from "@/components/ui/Paragraph";
-import Container from "@/components/layouts/Container";
 
-interface HeroProps {
-  title: string;
-  description: string;
-  button?: React.ReactNode;
-}
-
-const Hero: React.FC<HeroProps> = ({ title, description, button }) => {
-  // Function to handle button click and scroll to the "About Me" section
-  const handleButtonClick = () => {
-    const section = document.getElementById("about-me");
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+const Hero: React.FC = () => {
+  const scrollToAcquire = () => {
+    const el = document.getElementById("artwork-acquisition");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section
-      id="/"
-      className="w-full min-h-[640px] relative overflow-hidden bg-black"
-    >
+    <section className="relative w-full min-h-[640px] md:min-h-[720px] flex items-center bg-[#211812] overflow-hidden">
+      {/* Edge-to-edge photography with restrained darkening layer for readability */}
       <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-no-repeat grayscale"
+        className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage:
-            "url('https://www.gocycle.ng/images/adetunwase-adenle.jpg')",
-          backgroundSize: "auto 100%",
-          backgroundPosition: "right center",
+          backgroundImage: "url('/slumart/pet_bottle_school_hero.jpg')",
         }}
       />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/10"
-      />
-      <Container>
-        {/* Hero Content */}
-        <div className="relative z-20 mt-36 mb-20 text-center text-white sm:my-20 md:mt-40 md:mb-20 md:text-left lg:max-w-8xl max-w-4xl">
-          <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-primaryGold">
-            Adetunwase Adenle
-          </p>
+      <div className="absolute inset-0 bg-black/40" />
 
-          <Heading
-            as="h1"
-            className="font-bold mb-6 animate-fade-in-up text-3xl"
+      {/* Hero content positioned in a clear, readable left column */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 w-full py-24 sm:py-32">
+        <div className="max-w-xl text-left">
+          <h1
+            className="text-[34px] sm:text-[44px] md:text-[50px] font-normal !text-white leading-[1.18] tracking-normal mb-8"
+            style={{ color: "#ffffff" }}
           >
-            {title}
-          </Heading>
+            Activating power inside communities
+          </h1>
 
-          <Paragraph className="mb-8 tracking-tighter px-2 sm:px-0">
-            {description}
-          </Paragraph>
-
-          <div className="flex flex-col md:mt-10 sm:flex-row gap-4 justify-center md:justify-start items-center animate-fade-in-up animation-delay-600">
-            {button ?
-              button
-            : <>
-                <Button
-                  title="know more about me"
-                  primaryText="KNOW MORE ABOUT ME"
-                  hoverText="KNOW MORE ABOUT ME"
-                  icon={UserStar}
-                  iconPosition="left"
-                  onClick={handleButtonClick}
-                  className="gap-2 w-full sm:w-auto"
-                  aria-label="Donation button"
-                  variant="gold"
-                />
-              </>
-            }
+          <div className="flex items-center gap-4">
+            <button
+              onClick={scrollToAcquire}
+              className="bg-[#e86e4c] hover:bg-[#d85d3b] text-[#fff9f7] text-[14px] font-medium px-6 py-2.5 rounded-[6px] min-w-[114px] min-h-[44px] flex items-center justify-center transition-colors cursor-pointer border border-transparent"
+            >
+              Donate
+            </button>
+            <button
+              onClick={() => {
+                const el = document.getElementById("cnn-portraits");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="text-white hover:text-white/80 underline text-[14px] font-normal transition-colors cursor-pointer px-2 py-2"
+            >
+              Explore Artworks
+            </button>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 };

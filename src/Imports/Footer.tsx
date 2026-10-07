@@ -2,116 +2,85 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const linksCol1 = [
-  { label: "Home", href: "#" },
-  { label: "About Me", href: "#about-me" },
-  { label: "Platforms", href: "#platforms" },
-  { label: "Events", href: "#events" },
+  { label: "Home", href: "#hero" },
+  { label: "Who We Are", href: "#approach" },
+  { label: "Our Work", href: "#pet-bottle-schools" },
+  { label: "CNN Portraits", href: "#cnn-portraits" },
 ];
 
 const linksCol2 = [
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "Media & Press", href: "#media-and-press" },
+  { label: "Acquire Artwork ($1,200)", href: "#artwork-acquisition" },
+  { label: "Guinness World Records", href: "#guinness-records" },
+  { label: "Track Records", href: "#track-records" },
   { label: "Contact", href: "#contact" },
 ];
 
 const Footer: React.FC = () => {
   return (
-    <footer className="w-full bg-[#0a0a0a] text-white font-light overflow-hidden">
-      <div className="w-full px-6 sm:px-10 lg:px-16 py-30 pb-0">
-        {/* ── Main row: logo+nav LEFT  |  heading RIGHT ── */}
-        <div className="flex flex-col lg:flex-row lg:items-start gap-12 lg:gap-6">
-          {/* LEFT col — logo + two-col nav */}
-          <div className="flex flex-col gap-10 lg:w-[35%] shrink-0">
-            <Link href="/" className="text-3xl font-bold tracking-tight">
-              Adetunwase Adenle
+    <footer className="w-full bg-[#211812] text-white py-16 border-t border-white/10 font-normal">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+          {/* Brand Col */}
+          <div className="md:col-span-5 flex flex-col gap-4">
+            <Link href="/" className="inline-block">
+              <div className="relative h-10 w-36">
+                <Image
+                  src="/slumart/slum_art_logo_transparent.png"
+                  alt="Slum Art Foundation"
+                  fill
+                  className="object-contain filter brightness-125"
+                />
+              </div>
             </Link>
+            <p className="text-[14px] text-white/70 leading-[26px] max-w-sm mt-2">
+              Empowering slum children through creative education, sustainable PET bottle schools
+              across Africa, and advocacy against modern-day slavery.
+            </p>
+          </div>
 
-            <div className="flex flex-row gap-10">
-              <div className="flex flex-col gap-3">
-                {linksCol1.map(link => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className="text-white/40 text-xs uppercase hover:text-white/80 transition-colors duration-300"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-              
-              <div className="flex flex-col gap-3">
-                {linksCol2.map(link => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className="text-white/40 text-xs hover:text-white/80 uppercase transition-colors duration-300"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
+          {/* Links Col 1 */}
+          <div className="md:col-span-3 flex flex-col gap-3">
+            <span className="text-[12px] uppercase tracking-[0.14em] text-white/50 font-medium mb-1">
+              EXPLORE
+            </span>
+            {linksCol1.map(link => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-[14px] text-white/80 hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Links Col 2 */}
+          <div className="md:col-span-4 flex flex-col gap-3">
+            <span className="text-[12px] uppercase tracking-[0.14em] text-white/50 font-medium mb-1">
+              SUPPORT & CONNECT
+            </span>
+            {linksCol2.map(link => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-[14px] text-white/80 hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+            <div className="text-[13px] text-white/60 mt-3 pt-3 border-t border-white/10">
+              Ijora Badia, Lagos, Nigeria • +234 805 999 4834 • Adetunwase@slumart.org
             </div>
           </div>
-
-          {/* RIGHT col — ghost display heading flush to right edge */}
-          <div className="lg:w-[65%] flex items-start justify-start lg:justify-end lg:-mb-4 lg:-mr-16">
-            <h2
-              className="font-black tracking-tighter uppercase leading-[0.88] text-white/10 select-none lg:text-right text-left whitespace-nowrap"
-              style={{ fontSize: "clamp(52px, 10.5vw, 140px)" }}
-            >
-              Let&apos;s Build
-              <br />
-              The Future.
-            </h2>
-          </div>
         </div>
 
-        {/* ── Contact columns ── */}
-        <div className="flex flex-col sm:flex-row justify-between gap-8 sm:gap-4 border-t border-white/5 mt-14 py-12">
-          <div>
-            <p className="text-white/25 text-[10px] uppercase tracking-[0.18em] mb-2">
-              Direct Line
-            </p>
-            <Link
-              href="https://slumart.org/"
-              className="text-white/50 text-sm hover:text-white transition-colors duration-300"
-            >
-              Slum Art Foundation
-            </Link>
-          </div>
-
-          <div>
-            <p className="text-white/25 text-[10px] uppercase tracking-[0.18em] mb-2">
-              Email Support
-            </p>
-            <Link
-              href="mailto:adetunwase@slumart.org"
-              className="text-white/50 text-sm hover:text-white transition-colors duration-300 break-all"
-            >
-              adetunwase@slumart.org
-            </Link>
-          </div>
-
-          <div>
-            <p className="text-white/25 text-[10px] uppercase tracking-[0.18em] mb-2">
-              Mission
-            </p>
-            <p className="text-white/65 cursor-pointer hover:-translate-y-2 transition-all duration-300 text-xs uppercase leading-relaxed">
-              Building futures through art,
-              Creativity, Learning,
-              <br />
-              Opportunity.
-            </p>
-          </div>
-        </div>
-
-        {/* ── Bottom bar ── */}
-        <div className="border-t border-white/5 py-6 flex flex-row items-center justify-between gap-3">
-          <p className="text-white/25 text-xs">
-            © {new Date().getFullYear()} Adetunwase Adenle. All Rights Reserved.
-          </p>
+        {/* Bottom Sub-footer */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[13px] text-white/50 gap-4">
+          <p>© {new Date().getFullYear()} Slum Art Foundation. All Rights Reserved.</p>
+          <p>4x Guinness World Record Holder • My Freedom Day Partner</p>
         </div>
       </div>
     </footer>

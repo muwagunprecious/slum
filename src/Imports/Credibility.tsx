@@ -56,13 +56,13 @@ const Credibility = () => {
               as="h3"
               className="lg:text-4xl font-bold animate-fade-in-up"
             >
-              Creativity in service of{" "}
-              <span className="text-primaryGold">community impact.</span>
+              Art that empowers{" "}
+              <span className="text-primaryGold">kids to prosper.</span>
             </Heading>
 
-            <Paragraph className="mb-10 sm:px-0 lg:w-3/5 text-md">
-              From community art education to environmental innovation, the work
-              centers on practical opportunities for young people and underserved communities.
+            <Paragraph className="mb-10 sm:px-0 lg:w-3/5 text-md text-white/70">
+              From building circular PET bottle schools across Africa to exhibiting international CNN
+              anti-slavery collages, Slum Art turns creativity into life-changing education and nutrition.
             </Paragraph>
           </div>
         </div>

@@ -2,11 +2,18 @@ import { MediaCardProps } from "@/types/media";
 
 export const mediaList: MediaCardProps[] = [
   {
-    title: "CNN: Slum Art Foundation Helps Kids in Nigeria Learn the Process of Making Art",
+    title: "CNN: Slum Art Foundation — Lagos Youth Use Art for Freedom & Education",
     description: "CNN international coverage on Slum Art's youth portraits and advocacy against modern-day slavery — children painted 196 portraits of world leaders that together formed the CNN logo.",
     imageSrc: "/slumart/freedom_day/cnn_freedom_project.jpg",
-    url: "https://edition.cnn.com/videos/world/2019/03/15/nigeria-slum-art-freedom-day-lon-orig.cnn",
+    url: "https://edition.cnn.com/2026/04/14/world/video/mfd-lagos-art",
     style: "h-64 sm:h-auto sm:col-span-2 sm:row-span-1 lg:col-span-6 lg:row-span-4",
+  },
+  {
+    title: "CNN International: Global Education & Youth Action Showcase",
+    description: "CNN international coverage highlighting educational equity, youth advocacy, and community-led school initiatives.",
+    imageSrc: "/slumart/freedom_day/cnn.jpg",
+    url: "https://edition.cnn.com/2026/10/06/world/video/france-protests-schools-demonstrations-paris-intldsk",
+    style: "h-64 sm:h-auto lg:col-span-4 lg:row-span-3",
   },
   {
     title: "BBC News Pidgin: \"I be di only Nigerian wey get four Guinness world record\"",

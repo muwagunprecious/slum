@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { mediaList } from "@/constants/media";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Play } from "lucide-react";
 
 const Media: React.FC = () => {
   return (
@@ -25,6 +25,47 @@ const Media: React.FC = () => {
           </div>
         </div>
 
+        {/* Featured Video Player */}
+        <div className="mb-16 bg-white border border-[#e5e7eb] rounded-[12px] p-6 sm:p-8 overflow-hidden shadow-sm">
+          <div className="flex flex-col lg:flex-row gap-8 items-center">
+            <div className="w-full lg:w-7/12 relative aspect-video rounded-[8px] overflow-hidden bg-black shadow-inner">
+              <iframe
+                src="https://www.youtube.com/embed/5dVpta77M0o"
+                title="Slum Art Foundation Documentary"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full border-0"
+              />
+            </div>
+
+            <div className="w-full lg:w-5/12 flex flex-col gap-4">
+              <div className="flex items-center gap-2 text-[#e86e4c] text-[12px] uppercase tracking-wider font-semibold">
+                <Play className="w-3.5 h-3.5 fill-current" />
+                <span>Featured Broadcast & Story</span>
+              </div>
+              <h3 className="text-[22px] sm:text-[26px] font-bold text-[#211812] leading-tight">
+                Slum Art: Creative Education & PET Bottle Classrooms
+              </h3>
+              <p className="text-[15px] text-[#211812]/80 leading-[26px]">
+                Watch how Slum Art Foundation is transforming plastic waste into sustainable classrooms
+                and empowering over 1,000 children across Nigerian informal settlements through creative art mentorship.
+              </p>
+              <div className="pt-2">
+                <a
+                  href="https://youtu.be/5dVpta77M0o?si=pKoIbNYqxcnD6w_8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[14px] text-[#e86e4c] hover:text-[#d85d3b] font-medium underline underline-offset-4"
+                >
+                  <span>Watch on YouTube</span>
+                  <ChevronRight className="w-4 h-4 no-underline" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Media Articles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {mediaList.map((item, idx) => (
             <Link
@@ -32,7 +73,7 @@ const Media: React.FC = () => {
               href={item.url}
               target={item.url.startsWith("http") ? "_blank" : undefined}
               rel={item.url.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="bg-white border border-[#e5e7eb] rounded-[8px] overflow-hidden flex flex-col justify-between hover:border-[#211812]/40 transition-colors p-5 group"
+              className="bg-white border border-[#e5e7eb] rounded-[8px] overflow-hidden flex flex-col justify-between hover:border-[#211812]/40 transition-colors p-5 group shadow-sm"
             >
               <div>
                 <div className="relative aspect-[16/10] w-full rounded-[6px] overflow-hidden bg-[#f9fafb] border border-[#e5e7eb] mb-4">

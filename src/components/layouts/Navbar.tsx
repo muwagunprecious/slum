@@ -56,7 +56,7 @@ const Navbar = () => {
             onClick={() => scrollToSection("artwork-acquisition")}
             className="text-[14px] text-white/90 hover:text-white font-normal transition-colors cursor-pointer"
           >
-            ACQUIRE ARTWORK
+            GET YOUR OWN ARTWORK
           </button>
           <button
             onClick={() => scrollToSection("contact")}
@@ -117,7 +117,7 @@ const Navbar = () => {
             onClick={() => scrollToSection("artwork-acquisition")}
             className="text-left text-[15px] text-white/90 py-2 border-b border-white/5"
           >
-            ACQUIRE ARTWORK ($1,200)
+            GET YOUR OWN ARTWORK ($1,200)
           </button>
           <button
             onClick={() => scrollToSection("contact")}

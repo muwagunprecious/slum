@@ -183,7 +183,7 @@ const CnnCollection: React.FC = () => {
                       onClick={() => handleAcquire(selectedReporter)}
                       className="bg-[#e86e4c] hover:bg-[#d85d3b] text-[#fff9f7] text-[14px] font-medium px-5 py-2.5 rounded-[6px] min-w-[114px] min-h-[44px] transition-colors cursor-pointer"
                     >
-                      Acquire Artwork
+                      Get your own artwork
                     </button>
                     <button
                       onClick={() => setSelectedReporter(null)}

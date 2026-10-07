@@ -12,7 +12,7 @@ const linksCol1 = [
 ];
 
 const linksCol2 = [
-  { label: "Acquire Artwork ($1,200)", href: "#artwork-acquisition" },
+  { label: "Get your own artwork ($1,200)", href: "#artwork-acquisition" },
   { label: "Guinness World Records", href: "#guinness-records" },
   { label: "Track Records", href: "#track-records" },
   { label: "Contact", href: "#contact" },
@@ -26,12 +26,12 @@ const Footer: React.FC = () => {
           {/* Brand Col */}
           <div className="md:col-span-5 flex flex-col gap-4">
             <Link href="/" className="inline-block">
-              <div className="relative h-10 w-36">
+              <div className="relative h-10 w-44">
                 <Image
-                  src="/slumart/slum_art_logo_transparent.png"
+                  src="/slumart/slumart_logo_revamp.png"
                   alt="Slum Art Foundation"
                   fill
-                  className="object-contain filter brightness-125"
+                  className="object-contain filter brightness-0 invert"
                 />
               </div>
             </Link>

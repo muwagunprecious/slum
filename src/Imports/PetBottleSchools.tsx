@@ -9,9 +9,9 @@ const PetBottleSchools: React.FC = () => {
   return (
     <section
       id="pet-bottle-schools"
-      className="w-full py-20 sm:py-28 text-[#211812] border-t border-[#caa12c]"
+      className="w-full py-20 sm:py-28 text-[#211812] border-t border-[#c9562e]"
       style={{
-        backgroundColor: "#e5a024", // Golden Yellow
+        backgroundColor: "#e86e4c", // Slum Art Orange
       }}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">

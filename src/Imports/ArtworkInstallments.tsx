@@ -26,7 +26,7 @@ const ArtworkInstallments: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-2xl mb-12">
           <p className="text-[12px] uppercase tracking-[0.14em] text-[#211812]/60 mb-3 font-medium">
-            ACQUIRE ARTWORK & SPONSOR A SCHOOL
+            GET YOUR OWN ARTWORK & SPONSOR A SCHOOL
           </p>
           <h2 className="text-[32px] sm:text-[38px] font-medium text-[#211812] tracking-tight">
             Original Artwork: ${TOTAL_ARTWORK_PRICE.toLocaleString()}

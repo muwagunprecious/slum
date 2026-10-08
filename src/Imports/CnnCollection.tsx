@@ -79,7 +79,7 @@ const CnnCollection: React.FC = () => {
               }}
               className="bg-[#e86e4c] hover:bg-[#d85d3b] text-[#fff9f7] text-[14px] font-medium px-5 py-2.5 rounded-[6px] min-w-[114px] min-h-[44px] transition-colors cursor-pointer"
             >
-              Acquire An Artwork ($1,200)
+              Get your own artwork
             </button>
           </div>
         </div>
@@ -114,8 +114,7 @@ const CnnCollection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-[#e5e7eb] flex items-center justify-between text-[13px]">
-                <span className="font-semibold text-[#211812]">$1,200</span>
+              <div className="pt-3 border-t border-[#e5e7eb] flex items-center justify-end text-[13px]">
                 <span className="text-[#e86e4c] font-medium underline underline-offset-2">
                   View Letter &gt;
                 </span>
